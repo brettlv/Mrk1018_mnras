@@ -1,0 +1,219 @@
+% mnras_template.tex 
+%
+% LaTeX template for creating an MNRAS paper
+%
+% v3.0 released 14 May 2015
+% (version numbers match those of mnras.cls)
+%
+% Copyright (C) Royal Astronomical Society 2015
+% Authors:
+% Keith T. Smith (Royal Astronomical Society)
+
+% Change log
+%
+% v3.0 May 2015
+%    Renamed to match the new package name
+%    Version number matches mnras.cls
+%    A few minor tweaks to wording
+% v1.0 September 2013
+%    Beta testing only - never publicly released
+%    First version: a simple (ish) template for creating an MNRAS paper
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Basic setup. Most papers should leave these options alone.
+\documentclass[fleqn,usenatbib]{mnras}
+\usepackage{cite}
+
+% MNRAS is set in Times font. If you don't have this installed (most LaTeX
+% installations will be fine) or prefer the old Computer Modern fonts, comment
+% out the following line
+\usepackage{newtxtext,newtxmath}
+% Depending on your LaTeX fonts installation, you might get better results with one of these:
+%\usepackage{mathptmx}
+%\usepackage{txfonts}
+
+% Use vector fonts, so it zooms properly in on-screen viewing software
+% Don't change these lines unless you know what you are doing
+\usepackage[T1]{fontenc}
+\usepackage{ae,aecompl}
+\usepackage{verbatim}
+
+%%%%% AUTHORS - PLACE YOUR OWN PACKAGES HERE %%%%%
+
+% Only include extra packages if you really need them. Common packages are:
+\usepackage{graphicx}	% Including figure files
+\usepackage{amsmath}	% Advanced maths commands
+\usepackage{amssymb}	% Extra maths symbols
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{pdflscape}	% Landscape pages
+\usepackage{amsmath} % or simply amstext
+\newcommand{\angstrom}{\text{\normalfont\AA}}
+\usepackage{color}
+
+\usepackage{times}
+\usepackage[space]{grffile}
+\usepackage{cleveref}
+\usepackage[normalem]{ulem}
+\usepackage{natbib}
+\usepackage{longtable}
+\usepackage{hyperref}
+\usepackage{comment}
+\bibpunct{(}{)}{;}{a}{}{,}
+\usepackage{pdflscape}	% Landscape pages
+\usepackage{url}
+\texorpdfstring
+
+
+\newcommand{\sqcm}{cm$^{-2}$}
+\newcommand{\alphaox}{$\alpha_\mathrm{OX}$}
+\newcommand{\Gammaxray}{$\Gamma$}
+
+\newcommand{\fek}{Fe~K$\alpha$}
+\newcommand{\xmm}{{\em XMM-Newton}}
+\newcommand{\nustar}{{\em NuSTAR }}
+\newcommand{\chandra}{{\em Chandra}}
+%\newcommand{\swift}{{\em Swift}}
+\newcommand{\suzaku}{{\em Suzaku}}
+\newcommand{\sax}{{\em BeppoSAX}}
+\newcommand{\vla}{{\small VLA}}
+
+\newcommand{\swift}{{\small \it Swift}}
+\newcommand{\bat}{{\small {\it Swift}/BAT}}
+\newcommand{\xrt}{{\small {\it Swift}/XRT}}
+\newcommand{\uvot}{{\small {\it Swift}/UVOT}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% AUTHORS - PLACE YOUR OWN COMMANDS HERE %%%%%
+
+% Please keep new commands to a minimum, and use \newcommand not \def to avoid
+% overwriting existing commands. Example:
+%\newcommand{\pcm}{\,cm$^{-2}$}	% per cm-squared
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%% TITLE PAGE %%%%%%%%%%%%%%%%%%%
+\graphicspath{{./}{pic/}}
+
+
+% Title of the paper, and the short title which is used in the headers.
+% Keep the title short and informative.
+\title[Mrk1018]{Long term multi-wavelength evolution of a changing-look AGN Mrk1018}
+
+% The list of authors, and the short list which is used in the headers.
+% If you need two or more lines of authors, add an extra line using \newauthor
+\author[Bing Lyu et al.]{
+Bing Lyu,$^{1,2}$
+Zhen Yan,$^{2}$
+Wenfei Yu,$^{2}$\thanks{E-mail:wenfei@shao.ac.cn}
+Qingwen Wu,$^{1}$%\thanks{E-mail:qwwu@hust.edu.cn}
+\\
+% List of institutions
+$^{1}$Huazhong University of Science and Technology, School of Physics, 1037 Luoyu Road, Wuhan, 430074, China\\
+$^{2}$Shanghai Astronomical Observatory, CAS, 
+Nandan Road 80, Shanghai, 200030, China\\
+%$^{3}$Another Department, Different Institution, Street Address, City Postal Code, Country\\
+%$^{4}$Department, Institution, Street Address, City Postal Code, Country
+}
+
+% These dates will be filled out by the publisher
+\date{Accepted XXX. Received YYY; in original form ZZZ}
+
+% Enter the current year, for the copyright statements etc.
+\pubyear{2021}
+
+% Don't change these lines
+\begin{document}
+\label{firstpage}
+\pagerange{\pageref{firstpage}--\pageref{lastpage}}
+\maketitle
+
+
+\def\sectionautorefname{Section}
+\def\subsectionautorefname{Section}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%% BODY OF PAPER %%%%%%%%%%%%%%%%%%
+\input{0_abstract}
+\input{1_introduction}
+\input{2_data_analysis}
+\input{3_result}
+\input{4_conclusion}
+\input{5_summary}
+
+
+
+
+
+
+\section*{Acknowledgements}
+We thank Prof Minfeng Gu for the discussions on the radio observations of CL-AGNs and Dr Linhui Wu and Minhua Zhou for discussions on the VLA data reduction. B.L. and Q.W. are supported in part by the NSFC (grant U1931203); Z.Y. is supported in part by the Natural Science Foundation of China (grants 11773055, U1938114), the Youth Innovation Promotion Association of CAS (ids. 2020265); W.Y. would like to acknowledge the support in part by the National Program on Key Research and Development Project (Grant No.2016YFA0400804) and the National Natural Science Foundation of China (grant number 11333005 and U1838203).
+
+%Chris Done for her friendly help with the usage of host galaxy model
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\section*{Data Availability}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%% REFERENCES %%%%%%%%%%%%%%%%%%
+
+% The best way to enter references is to use BibTeX:
+
+\bibliographystyle{mnras}
+\bibliography{refMrk1018all.bib} % if your bibtex file is called example.bib
+%\clearpage
+
+% Alternatively you could enter them by hand, like this:
+% This method is tedious and prone to error if you have lots of references
+%\begin{thebibliography}{99}
+%\bibitem[\protect\citeauthoryear{Author}{2012}]{Author2012}Author A.~N., 2013, Journal of Improbable Astronomy, 1, 1
+%\bibitem[\protect\citeauthoryear{Others}{2013}]{Others2013}Others S., 2012, Journal of Interesting Stuff, 17, 198
+%\end{thebibliography}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% APPENDICES %%%%%%%%%%%%%%%%%%%%%
+
+\clearpage
+\appendix
+%\section{Appendix}
+\input{table_xray.tex}
+%\clearpage
+%\input{table_alpha_ox.tex}
+\input{table_radio.tex}
+\input{table_radio_xray.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Don't change these lines
+\bsp	% typesetting comment
+\label{lastpage}
+\end{document}
+
+% End of mnras_template.tex
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

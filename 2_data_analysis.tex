@@ -1,0 +1,49 @@
+\section{Data reduction and analysis}\label{sec:data}
+\subsection{X-ray data analysis}
+We analyse all the public archival data of \swift, \xmm, \chandra ~and \nustar during the period between 2005 and 2019. All the X-ray spectra are fitted by a uniform model \texttt{tbabs*zpowerlw} with the absorption by the Galactic neutral hydrogen fixed at \citep[$N_{\rm{HI,Gal}}=2.43 \,\times \,10^{20}\, \rm{cm}^{-2}$,][]{2005A&A...440..775K} since no intrinsic absorption beyond Galactic is detected \citep[see][]{2016A&A...593L...9H,2017A&A...607L...9K}. The 2--10~keV flux are calculated by {\it cflux} component within {\scriptsize XSPEC} (v12.10). The observation information and best-fitting parameters including photon index ($\Gamma$, hereafter), unabsorbed flux in 2--10~keV ($F_{\rm{2-10~keV}}$) are listed in \autoref{tab:tablexray}. The long term X-ray light curve in 2--10~keV band is shown in the top panel of \autoref{fig:multi-lc-secondaxis}.
+
+
+\subsubsection{\xrt\,}
+\label{data-xrt}
+The X-ray telescope (XRT) on board of the \swift\, satellite has the most high-cadence monitoring of Mrk~1018 in X-ray band. We reprocess all the archive data of \xrt\, observations performed in photon counting mode with {\scriptsize XRTPIPELINE}\footnote{\url{http://swift.asdc.asi.it}}. The source region is a circle centered at the nucleus of Mrk 1018, the radius of which is determined by the count rate of each observation according to \citet{2009MNRAS.397.1177E}. We use {\scriptsize XSELECT} to extract the source and background spectra. We use $C$-stat method for fitting with minimum one count per bin. The XRT spectra of Mrk~1018 in 0.5--10~keV range are fitted. 
+
+%For the observation in 2013 March (ObsID 49654001) with exposure time less than 1 ks, we perform the source detection within {\scriptsize XIMAGE} and yield the signal-to-noise large than 6. 
+%we do Here we only adopt observations with the reduced chisq 0.7$\le \chi^2_\mathrm{} \le$1.5 for \swift/XRT observations. 
+
+
+
+\subsubsection{\chandra/ACIS-S}
+We extract all the ACIS-S spectra with CIAO (v4.12) \footnote{\url{http://cxc.harvard.edu/ciao/threads/index.html}} and {\scriptsize CALDB} (v4.9.1). \textcolor{red}{For the observation in 2010 November (ObsID 12868) affected by the pile-up effect, we adopt} the fitting results from \citet{2016A&A...593L...9H} which excluded the bright pixels and corrected the photon loss for this observation. The other observations are not affected by the pile-up and the source spectra are extracted from a 3$\arcsec$ radius circle and the background spectra are extracted from an annulus with 5$\arcsec$ inner radius and 15$\arcsec$ outer radius \citep[see also][]{2017ApJ...840...11L}. Then all the spectra are grouped by minimum of 20 counts per bin and fitted in 0.5--8~keV range. 
+
+%There are some different results due to different treatments on the pile-up effect \citep[see ][]{2016A&A...593L...9H,2017ApJ...840...11L,2017A&A...607L...9K}.
+
+\subsubsection{\xmm/EPIC-PN }
+There are four \xmm \, observations on Mrk~1018, and only 2 have been released so far, which are observed in 2005 (ObsID 201090201) and 2008 (ObsID 554920301), respectively. We reprocess the PN data with {\scriptsize EPPROC} in \texttt{SAS-16.1.0}\footnote{\url{https://www.cosmos.esa.int/web/xmm-newton}}. The source and background region are a 40$''$ and 60$''$ radius circle, respectively. Each spectrum is grouped by minimum of 30 counts per bin and fitted in the 2--10~keV range. 
+
+
+
+\subsubsection{\nustar\,}
+There are 5 public observations of \nustar in the archive datasets, which are reduced through the {\scriptsize NUPIPELINE} task of the {\scriptsize NUSTARDAS} package. The source region is a 50$''$ radius circle at the center of source, and background is extracted from region off source. The spectrum is grouped by minimum of 30 counts per bin and fitted in the 3--79~keV range.
+
+\subsection{\uvot\,data analysis}
+\label{sec:uvot}
+%f_uuu=(constants.c/(3465*units.AA)).to(u.Hz).value
+%f_uw1=(constants.c/(2600*units.AA)).to(u.Hz).value
+%f_um2=(constants.c/(2246*units.AA)).to(u.Hz).value
+%f_uw2=(constants.c/(1928*units.AA)).to(u.Hz).value
+There are six filters in optical/ultraviolet band of \uvot, which are V, B, U, UVW1, UVM2 and UVW2 bands. We use the tool \textit{uvotsource} to do the aperture photometry for each filter of all the observations. The source aperture radius is 5$\arcsec$ and the background is chosen in a blank region with much larger aperture radius. According to the spectrum of the host galaxy of Mrk 1018 in \citep{2018MNRAS.480.3898N}, \textcolor{red}{we discard all the results of V and B bands which mainly come from} the host galaxy even in the bright phase. We adopt $E(B-V) = 0.036$ \citep[see][]{2018MNRAS.480.3898N} and $R_{V}=3.1$ for the galactic extinction. We calculate the values of $A_{\lambda}$ for U, UVW1, UVM2, and UVW2 band are  0.18, 0.25, 0.35 and 0.31 assuming the extinction model of \citet{2007ApJ...663..320F} to get the galactic extinction corrected magnitude. 
+
+%The host galaxy contribute around half of flux in UVW1 band in the type 1.9 phase. 
+%\textcolor{red}{}
+
+%($A_V=$ 0.075 and $R_{V}=3.1$)
+
+
+\subsection{Radio data analysis}
+\label{subsec:vla}
+%\subsubsection{VLA}
+We retrieve all the archival Very Large Array (VLA) observations for Mrk~1018 and analyse the data with \textsc{casa} version 5.3.0 \citep{2007ASPC..376..127M}. For the reduction of the pre-EVLA upgrade VLA data (VLA, project ID: AU0020, AB0476, AB0540 and AB0878), we manually flag and calibrate the data, then clean the image following the instruction\footnote{\url{https://casaguides.nrao.edu/index.php/VLA_5_GHz_continuum_survey_of_Seyfert_galaxies}}. For the new Karl G. Jansky Very Large Array data (JVLA, project ID: 16A-444, 16B-084 and 18B-245), calibrations are performed using script {EVLA\_pipeline1.4.2}\footnote{\url{https://science.nrao.edu/facilities/vla/data-processing/pipeline/scripted-pipeline}}. Different bands are split into different MS files after checking the radio frequency interference and calibration. Then source is imaged using {\scriptsize TCLEAN} method and integrated flux is estimated via \textsc{imfit} task. The flux density uncertainty is calculated as $\sigma_\mathrm{S}=\sqrt{(rms)^2+(0.05\times S)^2}$, where $5 \%$ absolute flux error is taken into account, except for the quick look image result in epoch 1 of  {\em VLA Sky Survey (VLASS1.1)}, where $15 \%$ system error is considered according to the {\em VLASS Epoch 1 Quick Look Users Guide} \footnote{\url{https://science.nrao.edu/science/surveys/vlass/vlass-epoch-1-quick-look-users-guide}}. 
+
+We calculate the radio spectral index $\alpha_\mathrm{R}$ defined as $S_v \propto v^{-\alpha_\mathrm{R}}$. The flux density in L and C band varied little when Mrk~1018 is in the type 1 AGN phase (befor MJD 55540). We find the $\alpha_\mathrm{L-X} =0.3 \pm 0.07$ based on the observations on 50970 MJD (X band) and 50219 MJD (L band) as the radio spectral index in this phase. In the type 1.9 AGN phase (after MJD 57033), we get the $\alpha_\mathrm{C} =0.33\pm0.21$ and the $\alpha_\mathrm{C-X} =0.25\pm0.1$ based on the observation on 57481 MJD (C and X band) and the $\alpha_\mathrm{C} =0$ based on the observation on 57768 MJD (C band). \textcolor{red}{We convert the flux in different bands to 5GHz based on the derived radio spectral index $\alpha_R$.} All data include the survey data in FIRST \citep{1994ASPC...61..165B,1995ApJ...450..559B} and Stripe 82 \citep{2011AJ....142....3H} from archival papers are listed in Table.~\ref{tab:tableradio}. 
+
+%and the $\alpha_\mathrm{C-K} =0.03\pm0.05$  and K
